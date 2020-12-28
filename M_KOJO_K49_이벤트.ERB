@@ -15,6 +15,7 @@
 ;本口上にて使用しているCFLAG・TCVAR等
 ;CFLAG:999 구상용이어받아 테두리(주회시에도 유지됨, 시스템 제공)
 ; 
+;CFLAG:1500 용서 안 함 플래그
 ;CFLAG:3000 아나타 평가 변수
 ;CFLAG:3001 전번 만남에서 아나타가 팬티를 얼마나 가지고 있었는가
 ;CFLAG:3002 전번 만남에서 아나타의 시간경험이 몇인가
@@ -10291,44 +10292,171 @@ IF LOCAL
 				ENDIF
 			ELSE
 				IF CFLAG:3000 == 0
-
+					PRINTFORMW 「...읏...아...아파...뭐야 이거...」
+					PRINTFORMW 사토리는 얼떨떨한 표정으로 자신의 배를 만지고 있다...
+					PRINTFORMW 「...해버린거구나, 나...」
+					PRINTFORMW 「이렇게 허망하게 버려질거였다면...지금껏 지켜온 나날이 바보같네...」
+					PRINTFORMW 「...그래서, 만족한건가요...?」
+					PRINTFORML [0] 그렇다
+					PRINTFORML [1] 아니다
+					INPUT
+					IF RESULT == 0
+						PRINTFORMW 「...그래요, 그럼 됐어요」
+						PRINTFORMW 「...어짜피 그저 살덩이일뿐...그다지 중요한것도 아니니...」
+						PRINTFORMW 「다만...」
+						PRINTFORMW 「조금은 화가 나네요, 전부터 저한테 왜 자꾸 그러는거죠?」
+						PRINTFORMW 「...저한테 싫은점이 있다면 말로 해 주세요, 그만...그만좀 괴롭히고요...」
+						PRINTFORMW 사토리는 힘없는 목소리로 뇌까렸다
+						PRINTFORMW 그녀의 눈에 약간 고인 눈물은 고통때문일까 아니면 억울함 때문일까
+					ELSE
+						PRINTFORMW 「...하아...그래요, 뭔가 더 하고 싶다...그런건가요」
+						PRINTFORMW 「그래, 차라리 그 편이 마음은 편하네요, %MASTERNAME:49%답달까」
+						PRINTFORMW 「그치만...도대체 왜 그러는건가요?」
+						PRINTFORMW 「제가 미운가요...? 네...? 뭐라도 잘못한게 있나요?」
+						PRINTFORMW 사토리의 눈에 눈물이 살짝 고였다
+						PRINTFORMW 과연 그 눈물은 고통때문에 흐르는것일까, 아니면 억울함때문에 흐르는것일까
+					ENDIF
 				ELSEIF CFLAG:3000 == 1
-
+					PRINTFORMW 「...그저 조금 질 나쁜 사람, 이라고만 생각했는데」
+					PRINTFORMW 「최악이네요...남의 마음따윈 조금도 신경쓰지 않는건가요?」
+					PRINTFORMW 사토리는 아픈지 몸을 파르르 떨고 있다
+					PRINTFORMW 「...고작 이런 추접한 사람한테...멋대로 뺏기기 위해 지금껏 지켜왔다니...엄청 화나네요...」
+					PRINTFORMW 「...%사마스터는%...도대체 왜 그러는건가요? 제가 그렇게 밉나요?」
+					PRINTFORMW 사토리는 눈물을 뚝뚝 흘리며 주먹을 움켜쥐고 있다...
 				ELSE
-
+					PRINTFORMW 「...언젠간...이런일도 당할지 모른다 생각은 했는데...」
+					PRINTFORMW 「...아파...생각보다 아파...몸보다도 마음이 아파...」
+					PRINTFORMW 사토리는 분한지 눈물을 뚝뚝 흘리고 있다
+					PRINTFORMW 「고작 살덩이, 찢어져도 개의치 않은데」
+					PRINTFORMW 「이렇게 멋대로 당하면서도 저항조차 못한게 너무 화가 나」
+					PRINTFORMW 너무 침울해 하는 사토리에게 다가가려 하니 밀쳐져 버렸다
+					PRINTFORMW 「저리가, 이 이상 다가 오지 마...그냥...그냥 내버려둬...」
+					PRINTFORMW 사토리는 씩씩거리며 화를 내다 이내 다시 울기 시작했다...
 				ENDIF
+				TALENT:기분 = -1
+				CFLAG:3101 += 5
 			ENDIF
 		ELSEIF TALENT:연인
 			IF CFLAG:3000 == 0
-
+				PRINTFORMW 「...읏...?! 자..잠깐...무슨 짓을...」
+				PRINTFORMW 사토리는 아랫배를 더듬더듬 만지며 어리둥절한 표정을 짓고 있다
+				PRINTFORMW 「...저..저...처음이었는데...읏...이렇게 갑자기...」
+				PRINTFORMW 「...처음에는 좀 더 낭만적으로 하고 싶었는데...」
+				PRINTFORMW 사토리는 무척이나 실망한 눈치다...
+				PRINTFORMW 토라진 사토리를 달래는데 진땀을 빼야 했다
 			ELSEIF CFLAG:3000 == 1
-
+				PRINTFORMW 「...으긋...자...잠깐...무슨 짓이예요...」
+				PRINTFORMW 「...나...처음이었는데...」
+				PRINTFORMW 사토리는 아랫배를 더듬더듬 만지며 얼빠진 표정을 하고 있다...
+				PRINTFORMW 「...처음은 좀 더 무드있게...제가 직접 드리려고 했는데」
+				PRINTFORMW 「너무 큰 꿈이었나 보네요, 이런 변태분이 그런걸 기다려 주실리 없지」
+				PRINTFORMW 무척이나 실망한듯한 눈치다...사토리는 완전 토라져버렸다
+				PRINTFORMW 그탓에 한참동안이나 어르고 달래야만 했다...
 			ELSE
-
+				PRINTFORMW 「...아...아팟...잠깐...무슨 짓을...」
+				PRINTFORMW 「...정말이지, %사마스터는% 무드란 것도 몰라요...? 저는, 그게 처음이였다구요?」
+				PRINTFORMW 사토리는 무척 삐진듯한 표정으로 말해왔다...
+				PRINTFORMW 「처음에는 좀 더 느긋하고...음...분위기 있게, 그렇게 제가 직접 드릴려고 했는데...」
+				PRINTFORMW 「...미워요, 진짜, 내 맘도 몰라주고...」
+				PRINTFORMW 무척 토라진 모양이다...만, 한 것 자체에 대해서는 별 다른 언급이 없다
+				PRINTFORMW 「...몰라요, 앞으로 하던지 말던지...하지 말라해도 또 이렇게 범할거잖아요 이 변태」
+				PRINTFORMW 아무래도 사토리를 달래는데엔 한참 걸릴거 같다...
 			ENDIF
-		ELSEIF TALENT:연모||TALENT:사모||TALENT:애욕
+			;이미 박힌거 뭐 하지 말라고 할게 있나
+			SIF CFLAG:합의 == 0
+				CFLAG:합의 = 1
+			SIF CFLAG:생해금 == 0
+				CFLAG:생해금 = 1
+		ELSEIF TALENT:연모||TALENT:사모
 			IF CFLAG:3000 == 0
-
+				PRINTFORMW 「...으극...?!...무...무슨짓을...」
+				PRINTFORMW 사토리는 얼빠진 표정으로 %마스터를% 바라보고 있다...
+				PRINTFORMW 「...이런 짓을 할 사람이라고 생각하진 않았는데...」
+				PRINTFORMW 「적어도 말로 해도 됐었잖아요, 그게 그렇게 어려웠나요...」
+				PRINTFORMW 무척이나 축 처진 사토리는 묵묵히 고개를 떨궜다
+				PRINTFORMW 「이까짓거, 고작 살덩이니까...딱히 상관은 없지만」
+				PRINTFORMW 「%사마스터가% 나랑 말도 안하고 멋대로 그런게 싫은거예요」
+				PRINTFORMW 울적해진 사토리를 달래는데엔 많은 시간과 노력이 들었다...
+				CFLAG:3101 += 5
 			ELSEIF CFLAG:3000 == 1
-
+				PRINTFORMW 「...읏...?! 자..잠깐...지금...뭔...」
+				IF CFLAG:합의
+					PRINTFORMW 「...갑자기 무슨 짓이에요...」
+					PRINTFORMW 사토리는 짐짓 화난듯한 표정으로 %마스터를% 바라보고 있다
+					PRINTFORMW 「아무리 야한짓 하게 해줬다곤 해도, 갑자기 덮쳐서는...저...처음이었다구요?」
+					PRINTFORMW 「...처음을 이렇게 버리게 하다니...너무하잖아요」
+					PRINTFORMW 「게..게다가...으극...아프기까지 하고...」
+					PRINTFORMW 「...적어도, 말정돈 했어도 됐잖아요...」
+					PRINTFORMW 눈물을 글썽이는 사토리를 달래는데 진땀을 빼야 했다...
+				ELSE
+					PRINTFORMW 「...아...아직 그런거 허락 안 했는데...」
+					PRINTFORMW 「그리고 나...처음...이었는데...」
+					PRINTFORMW 사토리는 무척이나 울적해진 모양이다...
+					PRINTFORMW 「그깟 살덩이, 중요하지도 않지마는...말도없이, 내 허락도 없이 뺏어갔다는게 너무 분해」
+					PRINTFORMW 「...제가 그렇게 만만하게 보이던가요?」
+					PRINTFORMW 완전 화가난 사토리를 달래는데 진땀을 빼야했다...
+				ENDIF
+				CFLAG:3101 += 3
 			ELSE
-
+				PRINTFORMW 「...으극...아...아파라...」
+				PRINTFORMW 「제멋대로인 사람인줄은 알았지만 이렇게 까지 일줄은 몰랐네...」
+				PRINTFORMW 사토리는 아랫배를 매만지며 %마스터를% 노려보고 있다
+				PRINTFORMW 「...뭐어, 계속 부대끼다보면 언젠간 이리 될 거 같긴 했죠...」
+				PRINTFORMW 「그런줄 알면서도 조금은 좋아하고 있다는게 문제지」
+				PRINTFORMW 「...자, 그럼 다음은 뭐죠? 되도록이면 안 아픈거로 부탁합니다」
 			ENDIF
-		ELSEIF TALENT:섹프
-			IF CFLAG:3000 == 0
-
-			ELSEIF CFLAG:3000 == 1
-
-			ELSE
-
-			ENDIF
+		ELSEIF TALENT:섹프||TALENT:애욕
+			PRINTFORMW 「...으그극...생각보단 아프네...」
+			PRINTFORMW 「이것도 무척 기분좋을줄만 알았는데, 그것도 아니었나보네...」
+			PRINTFORMW 「그나저나 여태껏 한 번도 안하다가 이제사 갑자기 하다니, 별일이네요」
+			PRINTFORMW 「야한짓은 잔뜩 해놓고선 말이죠」
+			PRINTFORMW 사토리는 히죽히죽 웃으며 말해왔다
+			PRINTFORMW 「자, 그럼 이 다음은 뭐죠? 이젠 거릴낄것도 없으니 좀 더 기분 좋은거 잔뜩 합시다?」
+			SIF CFLAG:합의 == 0
+				CFLAG:합의 = 1
+			SIF CFLAG:생해금 == 0
+				CFLAG:생해금 = 1
 		ELSE
-			IF CFLAG:3000 == 0
-
-			ELSEIF CFLAG:3000 == 1
-
+			IF CFLAG:안면 == 0
+				PRINTFORMW 「...윽...?!....다...당신 뭐야...! 뭘 한거야...!」
+				PRINTFORMW 소녀는 어떻게 알았는지 %마스터를% 노려보며 고통을 견디고 있다...
+				PRINTFORMW 「...나...나 처음이었는데...흐극...어째서...알지도 못하는 사람한테에...」
+				PRINTFORMW 무척이나 서러운지 눈물을 글썽이는 그녀는 약한힘으로 %마스터의% 멱살을 잡아왔다
+				PRINTFORMW 그러나 갑자기 느껴진 고통이 예상외로 강했는지 그녀는 그 이상 아무것도 할 수 없었다...
+				PRINTFORMW 「...쓰레..기...절대 용서 안 할 거니까...」
+				MARK:반발각인 = 3
+				CFLAG:빡침 = 1
+				CFLAG:언짢음 = 1
+				BASE:분노 += 1000
+				TCVAR:피임약 = 1
+				CFLAG:3101 += 1000
+				CFLAG:1500 = 1
+				CFLAG:안면 = 1
 			ELSE
+				IF CFLAG:3000 == 0
+					PRINTFORMW 「...으읏...무..무슨짓이예요...?」
+					PRINTFORMW 「이런 사람이라고 생각 안 했는데...어째서...」
+					PRINTFORMW 사토리는 얼빠진 표정으로 멍하니 서 있다
+					PRINTFORMW 「...너무해...」
 
+				ELSEIF CFLAG:3000 == 1
+					PRINTFORMW 「...남한테 그런 짓을 하는 사람...인줄은 알고는 있었는데」
+					PRINTFORMW 「역시 면전에다 그리 말한건 조금 기분 나빴던걸까...으긋...」
+					PRINTFORMW 「...설마 나한테도 이럴줄은 몰랐는데...」
+					PRINTFORMW 사토리는 허탈한 표정으로 아랫배를 만지고 있다
+					PRINTFORMW 「...어쩔수 없겠죠, 이미 없어진거...우는 소리 해도 돌아오지 않는데」
+					PRINTFORMW 「적어도 다른 애들한텐 하지 않았으면 좋겠지만...」
+				ELSE
+					PRINTFORMW 「...역시나 해버렸네...그럴줄은 알고는 있었는데...」
+					PRINTFORMW 「막상 당하고 나니 어이가 없을정도로 순식간이야, 이럴거면 차라리 아무나 골라 잡아서 내 스스로 줘버렸어도 될 거였어」
+					PRINTFORMW 사토리는 허탈한듯 중얼거리며 %마스터를% 바라보고 있다
+				ENDIF
+				PRINTFORMW 무척이나 상심한듯해 보였기에 다가가려다 호되게 뺨을 얻어맞았다
+				PRINTFORMW 사토리는 무척이나 화가 난 듯한 얼굴로 %마스터를% 노려보고 있다...
+				CFLAG:빡침 = 1
+				CFLAG:언짢음 = 1
+				BASE:분노 += 1000
+				CFLAG:3101 += 10
 			ENDIF
 		ENDIF
 			RETURN 1
